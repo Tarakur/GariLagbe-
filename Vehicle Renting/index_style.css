@@ -1,0 +1,89 @@
+body {
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  .form-container {
+    background: #fff;
+    padding: 30px;
+    margin: 100px auto;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 107%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .social-signup {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .google-btn, .facebook-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .google-btn {
+    background-color: #db4437;
+    color: white;
+  }
+  .facebook-btn {
+    background-color: #4267B2;
+    color: white;
+  }
+  .google-btn i, .facebook-btn i {
+    font-size: 20px;
+  }
+
+  .messageDiv {
+    background-color: #db4437;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: 0;
+    animation: fadeOut 7s forwards;
+  }

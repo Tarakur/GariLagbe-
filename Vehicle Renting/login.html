@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="index_style.css">
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBKtAnad888Ou7BRPoMPl60mJ2kpTlCH2o",
+      authDomain: "vehicle-renting-343ac.firebaseapp.com",
+      projectId: "vehicle-renting-343ac",
+      storageBucket: "vehicle-renting-343ac.firebasestorage.app",
+      messagingSenderId: "441312385232",
+      appId: "1:441312385232:web:da6ef15efc30558e4f26d5"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    function showMessage(message, divId){
+      var messageDiv=document.getElementById(divId);
+      messageDiv.style.display="block";
+      messageDiv.innerHTML=message;
+      messageDiv.style.opacity=1;
+      setTimeout(function(){
+        messageDiv.style.opacity=0;
+      }, 5000);
+    }
+
+    const signIn=document.getElementById('submitSignIn');
+    signIn.addEventListener('click', (event)=>{
+      event.preventDefault();
+      const email=document.getElementById('email').value;
+      const password=document.getElementById('password').value;
+
+      const auth=getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential)=>{
+        showMessage('Login is successful','submitSignIn');
+        const user=userCredential.user;
+        localStorage.setItem('loggedInUserId', user.uid);
+        window.location.href='landing_page.html';
+      })
+      .catch((error)=>{
+          const errorCode=error.code;
+          if(errorCode==='auth/email-already-in-use'){
+            showMessage('Incorrect email or password','signInMessage');
+          }
+          else{
+            showMessage('Account does not exists','signInMessage');
+          }
+      });
+    })
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="signinForm">
+      <div id="signInMessage" class="messageDiv" style="display: none;"></div>
+      <input type="email" id="email" placeholder="Email" required autocomplete="email" />
+      <input type="password" id="password" placeholder="Password" required autocomplete="current-password" />
+      <button type="submit" id="submitSignIn">Login</button>
+      <p><a href="forgot-password.html">Forgot Password?</a></p>
+      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </form>
+  </div>
+</body>
+</html>

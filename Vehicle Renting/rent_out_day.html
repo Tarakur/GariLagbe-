@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="rent_out_day_style.css">
+    <title>Rent Out for a Day - RentWheels</title>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="landing_page.html" class="logo">Rent<span>Wheels</span></a>
+        <ul class="nav-menu">
+            <li><a href="landing_page.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fas fa-car"></i> Vehicles <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="toyota_car_section.html">Toyota Cars</a></li>
+                        <li><a href="honda_car_section.html">Honda Cars</a></li>
+                        <li><a href="bmw_car_section.html">BMW Cars</a></li>
+                        <li><a href="honda_bike_section.html">Honda Bikes</a></li>
+                        <li><a href="tvs_bike_section.html">TVS Bikes</a></li>
+                        <li><a href="yamaha_bike_section.html">Yamaha Bikes</a></li>
+                        <li><a href="pickup_section.html">Pickup Trucks</a></li>
+                        <li><a href="minivan_section.html">Minivans</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contacts.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+
+        <div class="right-section">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search vehicles..." onkeyup="searchVehicles()"/>
+                <i class="fa-solid fa-magnifying-glass" onclick="searchVehicles()"></i>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+    <div class="rent-out-day-container">
+        <div class="header-section">
+            <h1>Rent Out Your Vehicle for a Day</h1>
+            <p>Quick and easy way to earn from your vehicle</p>
+        </div>
+
+        <div class="features-section">
+            <h2>Why Choose Daily Rental?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Flexible Hours</h3>
+                    <p>Choose your preferred rental hours for the day</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Daily Earnings</h3>
+                    <p>Earn competitive rates for daily rentals</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Easy Scheduling</h3>
+                    <p>Set your availability for specific days</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Process</h3>
+                    <p>Verified renters and insurance coverage</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="process-section">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>List Your Vehicle</h3>
+                    <p>Fill out the form below with your vehicle details</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Price</h3>
+                    <p>Choose your daily rental rate</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Booked</h3>
+                    <p>Receive booking requests from verified renters</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Earn Money</h3>
+                    <p>Get paid after successful rental completion</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="application-section">
+            <h2>List Your Vehicle for Daily Rental</h2>
+            <form class="application-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-type">Vehicle Type</label>
+                    <select id="vehicle-type" required>
+                        <option value="">Select Vehicle Type</option>
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
+                        <option value="pickup">Pickup Truck</option>
+                        <option value="minivan">Minivan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="daily-rate">Daily Rate (USD)</label>
+                    <input type="number" id="daily-rate" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="available-days">Available Days</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="days" value="monday"> Monday</label>
+                        <label><input type="checkbox" name="days" value="tuesday"> Tuesday</label>
+                        <label><input type="checkbox" name="days" value="wednesday"> Wednesday</label>
+                        <label><input type="checkbox" name="days" value="thursday"> Thursday</label>
+                        <label><input type="checkbox" name="days" value="friday"> Friday</label>
+                        <label><input type="checkbox" name="days" value="saturday"> Saturday</label>
+                        <label><input type="checkbox" name="days" value="sunday"> Sunday</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Listing</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            document.querySelector(".nav-menu").classList.toggle("show");
+        });
+
+        // Handle mobile dropdown
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+    <script src="navbar.js"></script>
+</body>
+</html> 

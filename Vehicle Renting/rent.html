@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rent_style.css">
+    <title>Vehicle Renting System - Rent a Vehicle</title>
+</head>
+<body>
+    <div class="rental-form">
+        <h1>Rent a Vehicle</h1>
+
+        <label for="car-type">Select your vehicle type:</label>
+        <select id="car-type" onchange="updateVehicleOptions()">
+            <option value="cars">Cars</option>
+            <option value="bikes">Bikes</option>
+            <option value="mini-van">Mini Van</option>
+            <option value="pickup-truck">Pickup Truck</option>
+        </select>
+
+        <label for="vehicle" id="vehicle-label">Select your vehicle:</label>
+        <select id="vehicle">
+            <!-- Options will be populated based on vehicle type selection -->
+        </select>
+
+        <label for="pickup-location">Pick-up location:</label>
+        <input type="text" id="pickup-location" placeholder="Enter pick-up address">
+
+        <label for="dropoff-location">Drop-off location:</label>
+        <input type="text" id="dropoff-location" placeholder="Enter drop-off address">
+
+        <label for="pickup-datetime">Pick-up date and time:</label>
+        <input type="datetime-local" id="pickup-datetime">
+
+        <label for="dropoff-datetime">Drop-off date and time:</label>
+        <input type="datetime-local" id="dropoff-datetime">
+        <br><br><br>
+        <h2>Choose Your Payment Option</h2>
+        <div class="payment-options">
+            <label>
+                <input type="radio" name="payment" value="bkash">
+                <img src="payment_logo/bkash_logo.png" alt="Bkash">
+            </label>
+            <label>
+                <input type="radio" name="payment" value="nagad">
+                <img src="payment_logo/nagad_logo.png" alt="Nagad">
+            </label>
+            <label>
+                <input type="radio" name="payment" value="rocket">
+                <img src="payment_logo/rocket_logo.png" alt="Rocket">
+            </label>
+        </div>
+
+        <button class="proceed-button">Proceed</button>
+    </div>
+
+    <script>
+        function updateVehicleOptions() {
+            const vehicleType = document.getElementById('car-type').value;
+            const vehicleSelect = document.getElementById('vehicle');
+            vehicleSelect.innerHTML = ''; // Clear existing options
+
+            let options = [];
+
+            if (vehicleType === 'cars') {
+                options = [
+                    'Corolla', 'Axio', 'Allion', 'Premio', 'Honda City', 'Accord',
+                    'Civic', 'Amaze', 'BMW 3 series', 'BMW 5 series', 'BMW i5', 'BMW i7'
+                ];
+            } else if (vehicleType === 'bikes') {
+                options = [
+                    'Honda Livo', 'Honda SP 125', 'Dream Neo', 'Honda Grazia', 'TVS Sport',
+                    'TVS Rider', 'Apache', 'TVS Ntorq', 'Yamaha FZX', 'Yamaha Saluto',
+                    'Yamaha Cruiser', 'Yamaha Ray ZR'
+                ];
+            } else if (vehicleType === 'mini-van') {
+                options = [
+                    'Hiace', 'Toyota NOAH black', 'Nissan URVAN', 'Toyota NOAH white'
+                ];
+            } else if (vehicleType === 'pickup-truck') {
+                options = [
+                    'TATA', 'Toyota', 'Mitsubishi', 'Isuzu'
+                ];
+            }
+
+            options.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option.toLowerCase().replace(/ /g, '-');
+                opt.textContent = option;
+                vehicleSelect.appendChild(opt);
+            });
+        }
+
+        // Initialize the vehicle options on page load
+        document.addEventListener('DOMContentLoaded', updateVehicleOptions);
+    </script>
+</body>
+</html>

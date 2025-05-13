@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="profile_style.css">
+    <title>Profile - RentWheels</title>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="landing_page.html" class="logo">Rent<span>Wheels</span></a>
+        <ul class="nav-menu">
+            <li><a href="landing_page.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fas fa-car"></i> Vehicles <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="toyota_car_section.html">Toyota Cars</a></li>
+                        <li><a href="honda_car_section.html">Honda Cars</a></li>
+                        <li><a href="bmw_car_section.html">BMW Cars</a></li>
+                        <li><a href="honda_bike_section.html">Honda Bikes</a></li>
+                        <li><a href="tvs_bike_section.html">TVS Bikes</a></li>
+                        <li><a href="yamaha_bike_section.html">Yamaha Bikes</a></li>
+                        <li><a href="pickup_section.html">Pickup Trucks</a></li>
+                        <li><a href="minivan_section.html">Minivans</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contacts.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+        <div class="right-section">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search vehicles..." onkeyup="searchVehicles()"/>
+                <i class="fa-solid fa-magnifying-glass" onclick="searchVehicles()"></i>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+    <div class="profile-container">
+        <div class="profile-sidebar">
+            <div class="profile-avatar">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile Picture">
+                <button class="change-avatar"><i class="fas fa-camera"></i></button>
+            </div>
+            <div class="profile-info">
+                <h2>Tarakur</h2>
+                <p><i class="fas fa-envelope"></i> tarakur1234@gmail.com</p>
+                <p><i class="fas fa-calendar"></i> Member since: January 2024</p>
+            </div>
+            <nav class="profile-nav">
+                <a href="#personal" class="active"><i class="fas fa-user"></i> Personal Info</a>
+                <a href="#rentals"><i class="fas fa-car"></i> Rental History</a>
+                <a href="#payments"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </div>
+
+        <div class="profile-content">
+            <section id="personal" class="profile-section active">
+                <div class="section-header">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" value="Tarakur" readonly>
+                    </div>
+                    <div class="info-item">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" value="tarakur1234@gmail.com" readonly>
+                    </div>
+                    <div class="info-item">
+                        <label><i class="fas fa-phone"></i> Phone</label>
+                        <input type="tel" value="+880 **********" readonly>
+                    </div>
+                    <div class="info-item">
+                        <label><i class="fas fa-map-marker-alt"></i> Address</label>
+                        <input type="text" value="Quadirabad, Natore" readonly>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rentals" class="profile-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-car"></i> Rental History</h3>
+                    <div class="filter-options">
+                        <select>
+                            <option value="all">All Rentals</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                            <option value="upcoming">Upcoming</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="rental-history">
+                    <div class="rental-item">
+                        <div class="rental-image">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" alt="Toyota Camry">
+                        </div>
+                        <div class="rental-info">
+                            <h4>Toyota Camry</h4>
+                            <p><i class="fas fa-calendar"></i> Jan 15, 2024 - Jan 20, 2024</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Pickup: Dhaka Airport</p>
+                            <p><i class="fas fa-money-bill-wave"></i> Total: $450</p>
+                        </div>
+                        <div class="rental-status completed">
+                            <i class="fas fa-check-circle"></i> Completed
+                        </div>
+                    </div>
+                    <div class="rental-item">
+                        <div class="rental-image">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e" alt="Honda Civic">
+                        </div>
+                        <div class="rental-info">
+                            <h4>Honda Civic</h4>
+                            <p><i class="fas fa-calendar"></i> Feb 1, 2024 - Feb 5, 2024</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Pickup: Dhaka City Center</p>
+                            <p><i class="fas fa-money-bill-wave"></i> Total: $380</p>
+                        </div>
+                        <div class="rental-status active">
+                            <i class="fas fa-clock"></i> Active
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="payments" class="profile-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-credit-card"></i> Payment Methods</h3>
+                    <button class="add-payment-btn"><i class="fas fa-plus"></i> Add Payment Method</button>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-card">
+                        <div class="card-icon">
+                            <i class="fab fa-cc-visa"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Visa ending in 1234</h4>
+                            <p>Expires: 12/25</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="edit-card"><i class="fas fa-edit"></i></button>
+                            <button class="delete-card"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" class="profile-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-cog"></i> Account Settings</h3>
+                </div>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Email Notifications</h4>
+                            <p>Receive updates about your rentals and promotions</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Dark Mode</h4>
+                            <p>Switch to dark theme</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Profile navigation
+        const profileNav = document.querySelectorAll('.profile-nav a');
+        const sections = document.querySelectorAll('.profile-section');
+
+        profileNav.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                
+                // Update active states
+                profileNav.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show target section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Edit profile functionality
+        const editBtn = document.querySelector('.edit-btn');
+        const inputs = document.querySelectorAll('.info-grid input');
+
+        editBtn.addEventListener('click', function() {
+            const isEditing = this.classList.contains('editing');
+            
+            if (isEditing) {
+                // Save changes
+                this.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                this.classList.remove('editing');
+                inputs.forEach(input => input.setAttribute('readonly', ''));
+            } else {
+                // Enable editing
+                this.innerHTML = '<i class="fas fa-save"></i> Save';
+                this.classList.add('editing');
+                inputs.forEach(input => input.removeAttribute('readonly'));
+            }
+        });
+    </script>
+    <script src="navbar.js"></script>
+</body>
+</html> 
