@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - RentWheels</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="rent-hero">
+        <div class="rent-hero-content">
+            <h1>Booking Confirmed!</h1>
+            <p>Thank you for choosing RentWheels</p>
+        </div>
+    </div>
+
+    <div class="rent-container">
+        <div class="confirmation-container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Your booking has been confirmed</h2>
+            <p>We've sent a confirmation email with all the details.</p>
+            
+            <div class="booking-details">
+                <h3>Booking Details</h3>
+                <div id="bookingDetails">
+                    <!-- Booking details will be populated here -->
+                </div>
+            </div>
+
+            <div class="confirmation-actions">
+                <a href="landing_page.html" class="btn btn-primary">Return to Home</a>
+                <button onclick="window.print()" class="btn btn-secondary">Print Confirmation</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBKtAnad888Ou7BRPoMPl60mJ2kpTlCH2o",
+            authDomain: "vehicle-renting-343ac.firebaseapp.com",
+            projectId: "vehicle-renting-343ac",
+            storageBucket: "vehicle-renting-343ac.firebasestorage.app",
+            messagingSenderId: "441312385232",
+            appId: "1:441312385232:web:da6ef15efc30558e4f26d5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Get payment ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get('paymentId');
+
+        if (paymentId) {
+            // Fetch booking details from Firestore
+            const docRef = doc(db, "payments", paymentId);
+            getDoc(docRef).then((doc) => {
+                if (doc.exists()) {
+                    const bookingData = doc.data();
+                    displayBookingDetails(bookingData);
+                } else {
+                    console.error("No such booking found!");
+                }
+            }).catch((error) => {
+                console.error("Error fetching booking:", error);
+            });
+        }
+
+        function displayBookingDetails(data) {
+            const detailsContainer = document.getElementById('bookingDetails');
+            detailsContainer.innerHTML = `
+                <div class="detail-item">
+                    <span>Vehicle:</span>
+                    <span>${data.vehicleModel}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Type:</span>
+                    <span>${data.vehicleType}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Registration Number:</span>
+                    <span>${data.registrationNumber}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Pick-up Location:</span>
+                    <span>${data.pickupLocation}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Drop-off Location:</span>
+                    <span>${data.dropoffLocation}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Pick-up Date:</span>
+                    <span>${new Date(data.pickupDateTime).toLocaleString()}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Drop-off Date:</span>
+                    <span>${new Date(data.dropoffDateTime).toLocaleString()}</span>
+                </div>
+                <div class="detail-item">
+                    <span>Duration:</span>
+                    <span>${data.duration} days</span>
+                </div>
+                <div class="detail-item">
+                    <span>Payment Method:</span>
+                    <span>${data.paymentMethod}</span>
+                </div>
+                <div class="detail-item total">
+                    <span>Total Amount:</span>
+                    <span>৳${data.totalAmount.toLocaleString()}</span>
+                </div>
+            `;
+        }
+    </script>
+
+    <style>
+        .confirmation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .booking-details {
+            margin: 2rem 0;
+            text-align: left;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item.total {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #ddd;
+        }
+
+        .confirmation-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media print {
+            .confirmation-actions {
+                display: none;
+            }
+        }
+    </style>
+</body>
+</html> 
