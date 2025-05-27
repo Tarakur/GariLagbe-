@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login - RentWheels</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBKtAnad888Ou7BRPoMPl60mJ2kpTlCH2o",
+            authDomain: "vehicle-renting-343ac.firebaseapp.com",
+            projectId: "vehicle-renting-343ac",
+            storageBucket: "vehicle-renting-343ac.firebasestorage.app",
+            messagingSenderId: "441312385232",
+            appId: "1:441312385232:web:da6ef15efc30558e4f26d5"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        function showMessage(message, divId) {
+            var messageDiv = document.getElementById(divId);
+            messageDiv.style.display = "block";
+            messageDiv.innerHTML = message;
+            messageDiv.style.opacity = 1;
+            setTimeout(function() {
+                messageDiv.style.opacity = 0;
+            }, 5000);
+        }
+
+        const login = document.getElementById('submitLogin');
+        login.addEventListener('click', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const auth = getAuth();
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    showMessage('Login successful', 'loginMessage');
+                    localStorage.setItem('loggedInUserId', user.uid);
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === 'auth/wrong-password') {
+                        showMessage('Wrong password', 'loginMessage');
+                    } else if (errorCode === 'auth/user-not-found') {
+                        showMessage('User not found', 'loginMessage');
+                    } else {
+                        showMessage('Error logging in', 'loginMessage');
+                    }
+                });
+        });
+    </script>
+</head>
+<body class="login-page">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Welcome Back</h2>
+            <p>Login to your RentWheels account</p>
+        </div>
+        <form class="login-form" id="loginForm">
+            <div id="loginMessage" class="messageDiv" style="display: none;"></div>
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" name="password" class="form-control" required placeholder="Enter your password">
+            </div>
+            <div class="form-footer">
+                <a href="forgot_password.html">Forgot Password?</a>
+            </div>
+            <button type="submit" id="submitLogin" class="btn btn-primary">Login</button>
+            <div class="form-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

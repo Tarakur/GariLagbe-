@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>RentWheels - Vehicle Rental</title>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="index.html" style="text-decoration: none; color: black;"><h1 class="logo">Rent<span>Wheels</span></h1></a>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fas fa-car"></i> Vehicles <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="toyota_car_section.html">Toyota Cars</a></li>
+                        <li><a href="honda_car_section.html">Honda Cars</a></li>
+                        <li><a href="bmw_car_section.html">BMW Cars</a></li>
+                        <li><a href="honda_bike_section.html">Honda Bikes</a></li>
+                        <li><a href="tvs_bike_section.html">TVS Bikes</a></li>
+                        <li><a href="yamaha_bike_section.html">Yamaha Bikes</a></li>
+                        <li><a href="pickup_section.html">Pickup Trucks</a></li>
+                        <li><a href="minivan_section.html">Minivans</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contacts.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+
+        <div class="right-section">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search vehicles..." onkeyup="searchVehicles()"/>
+                <i class="fa-solid fa-magnifying-glass" onclick="searchVehicles()"></i>
+            </div>
+            <a href="login.html" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Journey Begins Here</h1>
+            <p>Experience the freedom of the road with our premium vehicle rental service</p>
+            <div class="hero-buttons">
+                <a href="types.html" class="btn btn-primary">Rent Now</a>
+                <a href="rent_out.html" class="btn btn-secondary">List Your Vehicle</a>
+            </div>
+        </div>
+        <div class="hero-video">
+            <img src="images/landing_back.png" alt="Background" class="hero-background">
+        </div>
+    </section>
+
+    <!-- Featured Vehicles Section -->
+    <section class="featured-vehicles">
+        <h2>Featured Vehicles</h2>
+        <div class="vehicle-grid">
+            <div class="vehicle-card">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" alt="Chevrolet Camaro">
+                <div class="vehicle-info">
+                    <h3>Chevrolet Camaro</h3>
+                    <p>Luxury Sports Car</p>
+                    <div class="vehicle-features">
+                        <span><i class="fas fa-tachometer-alt"></i> 335 HP</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Automatic</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">View Details</a>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e" alt="BMW M4">
+                <div class="vehicle-info">
+                    <h3>BMW M4</h3>
+                    <p>Premium Sedan</p>
+                    <div class="vehicle-features">
+                        <span><i class="fas fa-tachometer-alt"></i> 425 HP</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Automatic</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">View Details</a>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39" alt="Harley Davidson">
+                <div class="vehicle-info">
+                    <h3>Harley Davidson</h3>
+                    <p>Premium Motorcycle</p>
+                    <div class="vehicle-features">
+                        <span><i class="fas fa-tachometer-alt"></i> 1800cc</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Manual</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose RentWheels?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Fully Insured</h3>
+                    <p>Comprehensive insurance coverage for peace of mind during your rental period</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer service and roadside assistance whenever you need it</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Premium Fleet</h3>
+                    <p>Well-maintained vehicles with regular servicing and quality checks</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Nationwide Service</h3>
+                    <p>Available in major cities with convenient pickup and drop-off locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card active">
+                <div class="testimonial-content">
+                    <p>"RentWheels made my vacation unforgettable! The car was in perfect condition, and the service was exceptional. Will definitely rent again!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
+                        <div>
+                            <h4>John Smith</h4>
+                            <p>Business Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The booking process was so easy, and the staff was incredibly helpful. The car was clean and well-maintained. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Family Vacation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Best car rental service I've ever used! Competitive prices, great selection of vehicles, and outstanding customer service."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael Brown">
+                        <div>
+                            <h4>Michael Brown</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-nav">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="testimonial-dots"></div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Hit the Road?</h2>
+            <p>Join thousands of satisfied customers who trust RentWheels for their transportation needs</p>
+            <a href="types.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for exclusive offers and updates</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">&#8679;</button>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>CONTACT US</h3>
+                <p><i class="fas fa-phone"></i> 16516 / 0173704149</p>
+                <p><i class="fas fa-envelope"></i> info@rentwheel.xyz</p>
+                <p><strong>Corporate Address</strong></p>
+                <p><i class="fas fa-map-marker-alt"></i> House 454, Road No: 31, Mohakhali, Dhaka</p>
+                <p><strong>TRADE LICENSE NO</strong></p>
+                <p>TRAD/DNCC/14564/2022</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contacts.html">Contact Us</a></li>
+                    <li><a href="types.html">Our Vehicles</a></li>
+                    <li><a href="rent_out.html">Rent Your Vehicle</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>DOWNLOAD OUR APP</h3>
+                <p>Get the best rental experience with our mobile app</p>
+                <div class="app-buttons">
+                    <a href="#"><img src="images/app_store.jpeg" alt="App Store"></a>
+                    <a href="#"><img src="images/play_store.png" alt="Google Play"></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Copyright&copy; 2025 RentWheel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            document.querySelector(".nav-menu").classList.toggle("show");
+        });
+
+        // Handle mobile dropdown
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Search functionality
+        function searchVehicles() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            // Clear previous results
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'none';
+
+            if (searchTerm.length < 2) {
+                return;
+            }
+
+            // Vehicle categories to search through
+            const vehicleCategories = [
+                { name: 'Toyota Cars', url: 'toyota_car_section.html' },
+                { name: 'Honda Cars', url: 'honda_car_section.html' },
+                { name: 'BMW Cars', url: 'bmw_car_section.html' },
+                { name: 'Honda Bikes', url: 'honda_bike_section.html' },
+                { name: 'TVS Bikes', url: 'tvs_bike_section.html' },
+                { name: 'Yamaha Bikes', url: 'yamaha_bike_section.html' },
+                { name: 'Pickup Trucks', url: 'pickup_section.html' },
+                { name: 'Minivans', url: 'minivan_section.html' }
+            ];
+
+            // Filter vehicles based on search term
+            const results = vehicleCategories.filter(vehicle => 
+                vehicle.name.toLowerCase().includes(searchTerm)
+            );
+
+            if (results.length > 0) {
+                searchResults.style.display = 'block';
+                const resultsList = document.createElement('ul');
+                
+                results.forEach(vehicle => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = vehicle.url;
+                    link.textContent = vehicle.name;
+                    listItem.appendChild(link);
+                    resultsList.appendChild(listItem);
+                });
+
+                searchResults.appendChild(resultsList);
+            }
+        }
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            const searchResults = document.getElementById('searchResults');
+            const searchContainer = document.querySelector('.search');
+            
+            if (!searchContainer.contains(event.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Testimonial Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.testimonial-slider');
+            const cards = document.querySelectorAll('.testimonial-card');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dotsContainer = document.querySelector('.testimonial-dots');
+            
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            
+            // Create dots
+            cards.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = document.querySelectorAll('.dot');
+            
+            function updateSlider() {
+                cards.forEach((card, index) => {
+                    card.classList.remove('active', 'prev', 'next');
+                    if (index === currentIndex) {
+                        card.classList.add('active');
+                    } else if (index === (currentIndex - 1 + totalCards) % totalCards) {
+                        card.classList.add('prev');
+                    } else if (index === (currentIndex + 1) % totalCards) {
+                        card.classList.add('next');
+                    }
+                });
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlider();
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalCards;
+                updateSlider();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                updateSlider();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Auto slide every 5 seconds
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto slide on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Initialize slider
+            updateSlider();
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            // Here you would typically send this to your backend
+            alert('Thank you for subscribing!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
